@@ -17,9 +17,6 @@ export class TodoComponent implements OnInit {
     email: '',
   };
 
-  // todos: Todo[] = [];
-
-  // todoDone: Todo[] = [];
 
   listTodoByUserId?:Observable<Todo[]>
   listTodoByUserIdDone?:Observable<Todo[]>
@@ -34,35 +31,12 @@ export class TodoComponent implements OnInit {
     this.user.nom = String(this.route.snapshot.paramMap.get('nom'));
     this.user.email = String(this.route.snapshot.paramMap.get('email'));
 
-    //this.getTodos()
-    //this.getTodosByUserId(this.user.id);
-
+    
     //pipe Async
     this.listTodoByUserId = this.todoService.listTodoByUser$.asObservable() // l'abonnement
     this.listTodoByUserIdDone = this.todoService.listTodoByUserDone$.asObservable() // l'abonnement
     this.todoService.refreshListTodoByUserId(this.user.id) // récupération des informations de Todo de l'utilisateur
   }
-
-  // getTodos() {
-  //   this.todoService.getTodos().subscribe((data) => {
-  //     this.todos = data;
-  //   });
-  // }
-
-
-  // getTodosByUserId(id: number) {
-  //   // this.todos=[]
-  //   // this.todoDone=[]
-  //   this.todoService.getTodosByUserId(id).subscribe((data: any) => {
-  //     data['todos'].forEach((elementTodo: any) => {
-  //       if (!elementTodo.done) {
-  //         this.todos.push(elementTodo);
-  //       } else {
-  //         this.todoDone.push(elementTodo);
-  //       }
-  //     });
-  //   });
-  // }
 
 
   onDelete(id:number){
@@ -70,12 +44,15 @@ export class TodoComponent implements OnInit {
     this.todoService.deleteTodo(id)
     .subscribe(data =>{
      console.log(data);
-    //   this.getTodosByUserId(this.user.id);
     this.todoService.refreshListTodoByUserId(this.user.id)
     })
   }
 
   onCheck(id:number){
-    this.todoService.refreshListTodoByUserId(this.user.id)
+    this.todoService.checkTodo(id)
+    .subscribe(data => {
+      console.log("On check :",data);
+      this.todoService.refreshListTodoByUserId(this.user.id)
+    })
   }
 }

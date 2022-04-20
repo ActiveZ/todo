@@ -47,7 +47,7 @@
       "id": "11",
       "titre": "Tâche 11",
       "categorie": "2",
-      "done": false,
+      "done": true,
       "userId": "1"
     },
     {
@@ -55,6 +55,13 @@
       "titre": "Tâche 12",
       "categorie": "1",
       "done": false,
+      "userId": "1"
+    },
+    {
+      "id": "14",
+      "titre": "Tâche 14",
+      "categorie": "2",
+      "done": true,
       "userId": "1"
     },
     {

@@ -24,12 +24,15 @@ export class TodoService {
     return this.http.delete<any>(this.Url + '/todos/' + id);
   }
 
+  checkTodo(id: number) : Observable<any>{
+    return this.http.patch<Todo[]>(this.Url + '/todos/' + id, {"done":true});
+  }
+
   refreshListTodoByUserId(id: number) {
     const todoDone: Todo[] = [];
     const todo: Todo[] = [];
     this.getTodosByUserId(id).subscribe((data: any) => {
       data['todos'].forEach((elementTodo: any) => {
-        
         if (!elementTodo.done) {
           todo.push(elementTodo);
         } else {
@@ -42,4 +45,6 @@ export class TodoService {
       console.log('Data refresh list Todo By User : ' + JSON.stringify(data));
     });
   }
+
+  
 }
