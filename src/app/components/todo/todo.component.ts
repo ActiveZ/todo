@@ -16,10 +16,11 @@ export class TodoComponent implements OnInit {
     nom: '',
     email: '',
   };
+  
+  filterargs = {categorie: ''};
 
-
-  listTodoByUserId?:Observable<Todo[]>
-  listTodoByUserIdDone?:Observable<Todo[]>
+  listTodoByUserId$?:Observable<Todo[]>
+  listTodoByUserIdDone$?:Observable<Todo[]>
 
   constructor(
     private route: ActivatedRoute,
@@ -32,8 +33,8 @@ export class TodoComponent implements OnInit {
     this.user.email = String(this.route.snapshot.paramMap.get('email'));
     
     //pipe Async
-    this.listTodoByUserId = this.todoService.listTodoByUser$.asObservable() // l'abonnement
-    this.listTodoByUserIdDone = this.todoService.listTodoByUserDone$.asObservable() // l'abonnement
+    this.listTodoByUserId$ = this.todoService.listTodoByUser$.asObservable() // l'abonnement
+    this.listTodoByUserIdDone$ = this.todoService.listTodoByUserDone$.asObservable() // l'abonnement
     this.todoService.refreshListTodoByUserId(this.user.id) // récupération des informations de Todo de l'utilisateur
   }
 

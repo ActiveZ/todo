@@ -10,15 +10,17 @@ import { UserComponent } from './components/user/user.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { FormTodoComponent } from './components/form-todo/form-todo.component';
 
+import { FilterCategoriePipe } from './pipes/filter-categorie.pipe';
+
 
 @NgModule({
   declarations: [
-   
     AppComponent,
     UserComponent,
     HeaderComponent,
     TodoComponent,
-    FormTodoComponent
+    FormTodoComponent,
+    FilterCategoriePipe
   ],
   imports: [
     BrowserModule,

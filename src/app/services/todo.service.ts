@@ -7,35 +7,61 @@ import { Todo } from '../models/todo';
   providedIn: 'root',
 })
 export class TodoService {
-  private Url = 'http://localhost:3000';
+  private url = 'http://localhost:3000';
+
   listTodoByUser$ = new Subject<Todo[]>(); // flux de la liste des Todos A faire d'un utilisateur
   listTodoByUserDone$ = new Subject<Todo[]>(); // flux de la liste des Todos Faits d'un utilisateur
+
   constructor(private http: HttpClient) {}
 
+  /**
+   *
+   * @returns la liste des todo
+   */
   getTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.Url + '/todos'); // base de données
+    return this.http.get<Todo[]>(this.url + '/todos'); // base de données
   }
 
+  /**
+   *
+   * @param id de l'utilisateur sélectionné
+   * @returns la liste des todos de l'utilisateur sélectionné
+   */
   getTodosByUserId(id: number): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.Url + '/users/' + id + '?_embed=todos');
+    return this.http.get<Todo[]>(this.url + '/users/' + id + '?_embed=todos');
   }
 
-  //supprimer une tâche
+  /**
+   * Supprimer une tâche
+   * @param id de la tâche à supprimer
+   * @returns reponse server
+   */
   deleteTodo(id: number): Observable<any> {
-    return this.http.delete<any>(this.Url + '/todos/' + id);
+    return this.http.delete<any>(this.url + '/todos/' + id);
   }
 
-  //valider une tâches
-  checkTodo(id: number) : Observable<any>{
-    return this.http.patch<Todo[]>(this.Url + '/todos/' + id, {"done":true});
+  /**
+   * Valider une tâche
+   * @param id de la tâche à valider
+   * @returns réponse server
+   */
+  checkTodo(id: number): Observable<any> {
+    return this.http.patch<Todo[]>(this.url + '/todos/' + id, { done: true });
   }
 
-  //Creation d'une nouvelle tâche
-  newTodo(newTodo:Todo):Observable<any>{
-    return this.http.post<Todo>(this.Url+'/todos', newTodo);
+  /**
+   * Creation d'une nouvelle tâche
+   * @param newTodo nouvelle tâche à ajouter à l'utilisateur 
+   * @returns réponse server
+   */
+  newTodo(newTodo: Todo): Observable<any> {
+    return this.http.post<Todo>(this.url + '/todos', newTodo);
   }
 
-  //rafraichir les listes de tâches de l'utilisateur A faire et Faite
+  /**
+   * rafraichir les listes de tâches de l'utilisateur A faire et Faite
+   * @param id de l'utilisateur
+   */
   refreshListTodoByUserId(id: number) {
     const todoDone: Todo[] = [];
     const todo: Todo[] = [];
@@ -49,10 +75,6 @@ export class TodoService {
       });
       this.listTodoByUser$.next(todo);
       this.listTodoByUserDone$.next(todoDone);
-
-      console.log('Data refresh list Todo By User : ' + JSON.stringify(data));
     });
   }
-
-  
 }

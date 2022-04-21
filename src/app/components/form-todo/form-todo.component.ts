@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from 'src/app/models/todo';
 import { User } from 'src/app/models/user';
@@ -42,7 +41,6 @@ export class FormTodoComponent implements OnInit {
     this.todoService
       .newTodo(this.newTodo)
       .subscribe((data) =>{
-        console.log('data',data)
         this.router.navigate(['/todos/'+this.user.id+'/'+this.user.nom+'/'+this.user.email])
       });
   }
