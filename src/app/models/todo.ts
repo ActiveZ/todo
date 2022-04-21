@@ -4,5 +4,4 @@ export interface Todo{
     categorie:string
     done:boolean
     userId:number 
-    
 }

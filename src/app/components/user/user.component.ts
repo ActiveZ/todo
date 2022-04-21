@@ -5,23 +5,20 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-
-  users!:User[];
-  constructor(private userService:UserService) { }
+  users!: User[];
+  
+  constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    this.getUsers()
+    this.getUsers();
   }
 
-  getUsers(){
-    this.userService.getUsers()
-    .subscribe((data:User[])=>
-      {
-        this.users=data;
-        console.log(data)
-      })
+  getUsers() {
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+    });
   }
 }

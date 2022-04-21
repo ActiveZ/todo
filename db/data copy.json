@@ -1,121 +1,124 @@
 {
-    "users":[
-        {
-            "id":"1",
-            "nom":"Leanne Graham",
-            "email":"Sincere@april.biz"
-
-        },
-        {
-            "id":"2",
-            "nom":"Ervin Howel",
-            "email":"Shanna@melissa.tv"
-
-        },
-        {
-            "id":"3",
-            "nom":"Clementine Bauch",
-            "email":"Nathan@yesenia.net"
-        },
-        {
-            "id":"4",
-            "nom":"Patricia Lebsack",
-            "email":"Julianne.OConner@kory.org"
-        }
+    "users": [
+      {
+        "id": 1,
+        "nom": "Leanne Graham",
+        "email": "Sincere@april.biz"
+      },
+      {
+        "id": 2,
+        "nom": "Ervin Howel",
+        "email": "Shanna@melissa.tv"
+      },
+      {
+        "id": 3,
+        "nom": "Clementine Bauch",
+        "email": "Nathan@yesenia.net"
+      },
+      {
+        "id": 4,
+        "nom": "Patricia Lebsack",
+        "email": "Julianne.OConner@kory.org"
+      }
     ],
-
-    "todos":[
-        {
-            "id":"1",
-            "titre": "Tâche 1",
-            "categorie":"2",
-            "done":false,
-            "userId":"1"
-        },
-        {
-            "id":"2",
-            "titre": "Tâche 2",
-            "categorie":"1",
-            "done":true,
-            "userId":"1"
-        },
-        {
-            "id":"10",
-            "titre": "Tâche 10",
-            "categorie":"1",
-            "done":true,
-            "userId":"1"
-        },
-        {
-            "id":"11",
-            "titre": "Tâche 11",
-            "categorie":"2",
-            "done":false,
-            "userId":"1"
-        },
-        {
-            "id":"12",
-            "titre": "Tâche 12",
-            "categorie":"1",
-            "done":false,
-            "userId":"1"
-        },
-        {
-            "id":"14",
-            "titre": "Tâche 14",
-            "categorie":"2",
-            "done":false,
-            "userId":"1"
-        },
-        {
-            "id":"13",
-            "titre": "Tâche 13",
-            "categorie":"1",
-            "done":true,
-            "userId":"1"
-        },
-        {
-            "id":"3",
-            "titre": "Tâche 3",
-            "categorie":"3",
-            "done":false,
-            "userId":"2"
-        },
-        {
-            "id":"4",
-            "titre": "Tâche 4",
-            "categorie":"2",
-            "done":false,
-            "userId":"2"
-        },
-        {
-            "id":"5",
-            "titre": "Tâche 5",
-            "categorie":"3",
-            "done":false,
-            "userId":"3"
-        },
-        {
-            "id":"6",
-            "titre": "Tâche 6",
-            "categorie":"1",
-            "done":false,
-            "userId":"3"
-        },
-        {
-            "id":"7",
-            "titre": "Tâche 7",
-            "categorie":"1",
-            "done":false,
-            "userId":"4"
-        },
-        {
-            "id":"8",
-            "titre": "Tâche 8",
-            "categorie":"2",
-            "done":false,
-            "userId":"4"
-        }
-
+    "todos": [
+      {
+        "id": 1,
+        "titre": "Tâche 1",
+        "categorie": "Important",
+        "done": false,
+        "userId": 1
+      },
+      {
+        "id": 2,
+        "titre": "Tâche 2",
+        "categorie": "Optionnel",
+        "done": true,
+        "userId":1
+      },
+      {
+        "id": 10,
+        "titre": "Tâche 10",
+        "categorie": "Optionnel",
+        "done": true,
+        "userId": 1
+      },
+      {
+        "id": 11,
+        "titre": "Tâche 11",
+        "categorie": "Important",
+        "done": true,
+        "userId": 1
+      },
+      {
+        "id": 12,
+        "titre": "Tâche 12",
+        "categorie": "Optionnel",
+        "done": false,
+        "userId": 1
+      },
+      {
+        "id": 14,
+        "titre": "Tâche 14",
+        "categorie": "Important",
+        "done": true,
+        "userId": 1
+      },
+      {
+        "id": 13,
+        "titre": "Tâche 13",
+        "categorie": "Optionnel",
+        "done": true,
+        "userId": 1
+      },
+      {
+        "id": 3,
+        "titre": "Tâche 3",
+        "categorie": "Urgent",
+        "done": false,
+        "userId": 2
+      },
+      {
+        "id": 4,
+        "titre": "Tâche 4",
+        "categorie": "Important",
+        "done": false,
+        "userId": 2
+      },
+      {
+        "id": 5,
+        "titre": "Tâche 5",
+        "categorie": "Urgent",
+        "done": false,
+        "userId":3
+      },
+      {
+        "id": 6,
+        "titre": "Tâche 6",
+        "categorie": "Optionnel",
+        "done": false,
+        "userId": 3
+      },
+      {
+        "id": 7,
+        "titre": "Tâche 7",
+        "categorie": "Optionnel",
+        "done": false,
+        "userId": 4
+      },
+      {
+        "id": 8,
+        "titre": "Tâche 8",
+        "categorie": "Important",
+        "done": false,
+        "userId": 4
+      },
+      {
+        "id": 1650536090598,
+        "titre": "Tâche 323",
+        "categorie": "Urgent",
+        "done": false,
+        "userId": 1
+      }
     ]
-}
+  }

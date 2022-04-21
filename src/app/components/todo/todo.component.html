@@ -1,41 +1,64 @@
-<h2>{{user.nom}}</h2>
-<p>{{user.email}}</p>
+<h2 class="text-center">{{ user.nom }}</h2>
+<p class="text-center">{{ user.email }}</p>
 
+<!-- Bouton creation tâche -->
+<div class="text-center">
+  <a [routerLink]="['/newTodo',user.id,user.nom, user.email]"><button class="btn btn-primary">Créer une tâche</button></a>
+</div>
 
-<h3>A faire</h3>
-<table class="table table-dark table-striped table-hover text-center">
+<!-- tableau des Todos A Faire -->
+<ng-container *ngIf="listTodoByUserId$ | async as todos;"> <!--Récupère les todos d'un utilisateur-->
+  <h3>A faire</h3>
+  <table class="table table-dark table-striped table-hover text-center">
     <thead>
       <tr>
         <th scope="col">Titre</th>
-        <th scope="col">Catégorie</th>
+        <th scope="col">Catégorie
+          <select [(ngModel)]="filterargs.categorie" class="form-select" name="categorie" id="cat" #categorie="ngModel">
+            <option value="">Aucun filtre</option>
+            <option value="Optionnel">Optionnel</option>
+            <option value="Important">Important</option>
+            <option value="Urgent">Urgent</option>
+          </select>
+        </th>
         <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let todo of todos">
-            <td>{{todo.titre}}</td> 
-            <td>{{todo.categorie}}</td> 
-            <td>
-              <button class="btn" (click)="onDelete(todo.id)"><i class="bi bi-x text-light"></i></button>
-              <button class="btn" (click)="onCheck(todo.id)"><i class="bi bi-check-all text-light"></i></button>
-            </td>
-            
-        </tr>
+      <tr *ngFor="let todo of todos | filterCategorie:filterargs">
+        <td>{{ todo.titre }}</td>
+        <td>{{ todo.categorie }}</td>
+        <td>
+          <button class="btn" (click)="onDelete(todo.id)">
+            <i class="bi bi-x text-light"></i>
+          </button>
+          <button class="btn" (click)="onCheck(todo.id)">
+            <i class="bi bi-check-all text-light"></i>
+          </button>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
+</ng-container>
 
-
-<h3>Fait</h3>
-<table class="table table-dark table-striped table-hover text-center">
+<!-- tableau des Todos Faits -->
+<ng-container *ngIf="listTodoByUserIdDone$ | async as todosDone;">
+  <h3>Fait</h3>
+  <table class="table table-dark table-striped table-hover text-center">
     <thead>
       <tr>
         <th scope="col">Titre</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let todo of todoDone">
-            <td>{{todo.titre}}</td>    
-        </tr>
+      <tr *ngFor="let todo of todosDone">
+        <td>{{ todo.titre }}</td>
+      </tr>
     </tbody>
-</table>
+  </table>
+</ng-container>
 
+<!-- Bouton retour utilisateur -->
+<div class="text-center">
+  <a [routerLink]="['/users']"><button class="btn btn-warning">Retour à la liste des utilisateurs</button></a>
+</div>

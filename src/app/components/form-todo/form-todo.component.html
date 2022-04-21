@@ -1,0 +1,30 @@
+<h2>{{ user.nom }}</h2>
+<p>{{ user.email }}</p>
+
+<form #formTodo="ngForm" class="row g-3 text-start">
+
+    <!-- Titre -->
+    <div class="col-3">
+      <label for="ftitre" class="form-lablel">Titre</label>
+      <input type="text" [(ngModel)]="newTodo.titre" class="form-control" name="titre" #titre="ngModel"
+        placeholder="Votre tâche" required />
+    </div>
+
+    <!-- catégorie -->
+    <div class="col-3">
+      <label for="cat" class="form-lablel">Catégorie</label>
+      <select [(ngModel)]="newTodo.categorie" class="form-select" name="categorie" id="cat" #categorie="ngModel">
+        <option selected>Sélectionner la catégorie</option>
+        <option value="Optionnel">Optionnel</option>
+        <option value="Important">Important</option>
+        <option value="Urgent">Urgent</option>
+      </select>
+    </div>
+
+    <!-- button -->
+    <div class="col-12">
+      <button [disabled]="formTodo.invalid" class="btn btn-primary" (click)="submit()">
+        Ajouter
+      </button>
+    </div>
+  </form>
