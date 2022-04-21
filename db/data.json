@@ -79,13 +79,6 @@
       "userId": 3
     },
     {
-      "id": 7,
-      "titre": "Tâche 7",
-      "categorie": "Optionnel",
-      "done": false,
-      "userId": 4
-    },
-    {
       "id": 8,
       "titre": "Tâche 8",
       "categorie": "Important",
@@ -112,6 +105,13 @@
       "categorie": "Urgent",
       "done": false,
       "userId": 1
+    },
+    {
+      "id": 1650552611978,
+      "titre": "rendre le tp",
+      "categorie": "Urgent",
+      "done": true,
+      "userId": 4
     }
   ]
 }
