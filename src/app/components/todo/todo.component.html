@@ -3,7 +3,7 @@
 
 <!-- Bouton creation tâche -->
 <div class="text-center">
-  <a routerLink="/newTodo/{{user.id}}/{{user.nom}}/{{user.email}}"><button class="btn btn-primary">Créer une tâche</button></a>
+  <a [routerLink]="['/newTodo',user.id,user.nom, user.email]"><button class="btn btn-primary">Créer une tâche</button></a>
 </div>
 
 <!-- tableau des Todos A Faire -->
@@ -60,5 +60,5 @@
 
 <!-- Bouton retour utilisateur -->
 <div class="text-center">
-  <a routerLink="/users"><button class="btn btn-warning">Retour à la liste des utilisateurs</button></a>
+  <a [routerLink]="['/users']"><button class="btn btn-warning">Retour à la liste des utilisateurs</button></a>
 </div>

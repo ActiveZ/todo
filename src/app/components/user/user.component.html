@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users">
-            <td> <a routerLink="/todos/{{user.id}}/{{user.nom}}/{{user.email}}">{{user.nom}}</a> </td>
+            <td> <a [routerLink]="['/todos',user.id,user.nom,user.email]">{{user.nom}}</a> </td>
             <td>{{user.email}}</td> 
             <td>
               <button class="btn"><i class="bi bi-pencil text-light"></i></button>
