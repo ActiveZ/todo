@@ -20,14 +20,22 @@ export class TodoService {
     return this.http.get<Todo[]>(this.Url + '/users/' + id + '?_embed=todos');
   }
 
+  //supprimer une tâche
   deleteTodo(id: number): Observable<any> {
     return this.http.delete<any>(this.Url + '/todos/' + id);
   }
 
+  //valider une tâches
   checkTodo(id: number) : Observable<any>{
     return this.http.patch<Todo[]>(this.Url + '/todos/' + id, {"done":true});
   }
 
+  //Creation d'une nouvelle tâche
+  newTodo(newTodo:Todo):Observable<any>{
+    return this.http.post<Todo>(this.Url+'/todos', newTodo);
+  }
+
+  //rafraichir les listes de tâches de l'utilisateur A faire et Faite
   refreshListTodoByUserId(id: number) {
     const todoDone: Todo[] = [];
     const todo: Todo[] = [];

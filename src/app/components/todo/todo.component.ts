@@ -30,7 +30,6 @@ export class TodoComponent implements OnInit {
     this.user.id = Number(this.route.snapshot.paramMap.get('id'));
     this.user.nom = String(this.route.snapshot.paramMap.get('nom'));
     this.user.email = String(this.route.snapshot.paramMap.get('email'));
-
     
     //pipe Async
     this.listTodoByUserId = this.todoService.listTodoByUser$.asObservable() // l'abonnement
@@ -38,7 +37,7 @@ export class TodoComponent implements OnInit {
     this.todoService.refreshListTodoByUserId(this.user.id) // récupération des informations de Todo de l'utilisateur
   }
 
-
+  //suprrimer une tâches
   onDelete(id:number){
     console.log(id);
     this.todoService.deleteTodo(id)
@@ -48,6 +47,7 @@ export class TodoComponent implements OnInit {
     })
   }
 
+  //valider une tâche
   onCheck(id:number){
     this.todoService.checkTodo(id)
     .subscribe(data => {
@@ -55,4 +55,5 @@ export class TodoComponent implements OnInit {
       this.todoService.refreshListTodoByUserId(this.user.id)
     })
   }
+
 }

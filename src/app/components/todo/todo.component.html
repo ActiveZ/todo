@@ -1,7 +1,7 @@
 <h2>{{ user.nom }}</h2>
 <p>{{ user.email }}</p>
-
-<ng-container *ngIf="listTodoByUserId | async as todos; else noTodo"> <!--Récupère les totos d'un utilisateur-->
+<a routerLink="/newTodo/{{user.id}}/{{user.nom}}/{{user.email}}"><button class="btn btn-primary">Créer une tâche</button></a>
+<ng-container *ngIf="listTodoByUserId | async as todos;"> <!--Récupère les totos d'un utilisateur-->
   <h3>A faire</h3>
   <table class="table table-dark table-striped table-hover text-center">
     <thead>
@@ -28,7 +28,7 @@
   </table>
 </ng-container>
 
-<ng-container *ngIf="listTodoByUserIdDone | async as todosDone; else noTodo">
+<ng-container *ngIf="listTodoByUserIdDone | async as todosDone;">
   <h3>Fait</h3>
   <table class="table table-dark table-striped table-hover text-center">
     <thead>
@@ -44,6 +44,4 @@
   </table>
 </ng-container>
 
-<ng-template #noTodo>
-  <h1>Aucun ToDo pour cet utilisateur</h1>
-</ng-template>
+<a routerLink="/users"><button class="btn btn-warning">Retour à la liste des utilisateurs</button></a>
